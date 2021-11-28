@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/julekalender/static/css/main.c0141ee0.chunk.css",
-    "main.js": "/julekalender/static/js/main.ab771c99.chunk.js",
-    "main.js.map": "/julekalender/static/js/main.ab771c99.chunk.js.map",
-    "runtime-main.js": "/julekalender/static/js/runtime-main.d4daba2e.js",
-    "runtime-main.js.map": "/julekalender/static/js/runtime-main.d4daba2e.js.map",
-    "static/css/2.5e49b50a.chunk.css": "/julekalender/static/css/2.5e49b50a.chunk.css",
-    "static/js/2.912adfca.chunk.js": "/julekalender/static/js/2.912adfca.chunk.js",
-    "static/js/2.912adfca.chunk.js.map": "/julekalender/static/js/2.912adfca.chunk.js.map",
-    "static/js/3.ba16f59d.chunk.js": "/julekalender/static/js/3.ba16f59d.chunk.js",
-    "static/js/3.ba16f59d.chunk.js.map": "/julekalender/static/js/3.ba16f59d.chunk.js.map",
-    "index.html": "/julekalender/index.html",
-    "static/css/2.5e49b50a.chunk.css.map": "/julekalender/static/css/2.5e49b50a.chunk.css.map",
-    "static/css/main.c0141ee0.chunk.css.map": "/julekalender/static/css/main.c0141ee0.chunk.css.map",
-    "static/js/2.912adfca.chunk.js.LICENSE.txt": "/julekalender/static/js/2.912adfca.chunk.js.LICENSE.txt"
+    "main.css": "/static/css/main.47818a56.chunk.css",
+    "main.js": "/static/js/main.96b234a3.chunk.js",
+    "main.js.map": "/static/js/main.96b234a3.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.a4b867fa.js",
+    "runtime-main.js.map": "/static/js/runtime-main.a4b867fa.js.map",
+    "static/css/2.5e49b50a.chunk.css": "/static/css/2.5e49b50a.chunk.css",
+    "static/js/2.f8425ed8.chunk.js": "/static/js/2.f8425ed8.chunk.js",
+    "static/js/2.f8425ed8.chunk.js.map": "/static/js/2.f8425ed8.chunk.js.map",
+    "static/js/3.a55bb6db.chunk.js": "/static/js/3.a55bb6db.chunk.js",
+    "static/js/3.a55bb6db.chunk.js.map": "/static/js/3.a55bb6db.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.5e49b50a.chunk.css.map": "/static/css/2.5e49b50a.chunk.css.map",
+    "static/css/main.47818a56.chunk.css.map": "/static/css/main.47818a56.chunk.css.map",
+    "static/js/2.f8425ed8.chunk.js.LICENSE.txt": "/static/js/2.f8425ed8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d4daba2e.js",
+    "static/js/runtime-main.a4b867fa.js",
     "static/css/2.5e49b50a.chunk.css",
-    "static/js/2.912adfca.chunk.js",
-    "static/css/main.c0141ee0.chunk.css",
-    "static/js/main.ab771c99.chunk.js"
+    "static/js/2.f8425ed8.chunk.js",
+    "static/css/main.47818a56.chunk.css",
+    "static/js/main.96b234a3.chunk.js"
   ]
 }
