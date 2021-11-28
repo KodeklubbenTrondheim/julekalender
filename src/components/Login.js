@@ -1,8 +1,15 @@
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import firebaseApp from '../firebase'
-import { doc, getFirestore, setDoc } from 'firebase/firestore'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { doc, getFirestore, setDoc, updateDoc } from 'firebase/firestore'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  updateProfile,
+} from 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 const auth = getAuth(firebaseApp)
@@ -28,7 +35,7 @@ export const login = async () => {
         try {
           await createUserWithEmailAndPassword(auth, email, password)
           await signInWithEmailAndPassword(auth, email, password)
-          await setDoc(doc(getFirestore(), 'users', username), {})
+          await setDoc(doc(getFirestore(), 'users', username), { score: 0 })
           alert('Vi lagde en ny bruker med dette brukernavnet: ' + username)
         } catch (error2) {
           switch (error2.code) {
@@ -53,19 +60,37 @@ const logout = () => {
 
 export function Login() {
   const [user, loading] = useAuthState(auth)
+  const [displayName, setDisplayName] = useState('')
+
+  useEffect(() => {
+    if (user) {
+      setDisplayName(user.displayName)
+    }
+  }, [user])
 
   if (loading) {
     return <Container>Laster inn ...</Container>
   }
 
   if (user) {
-    const username = user.displayName || user.email.replace('@kodeklubben.no', '')
-
+    const username = user.email.replace('@kodeklubben.no', '')
     return (
       <Container>
-        <span>
-          Hei, <b>{username}</b>!
-        </span>
+        <DisplayName
+          title="Trykk for å endre visningsnavnet ditt"
+          onClick={async () => {
+            const newDisplayName = prompt('Velg navnet som vises på ledertavlen', displayName || username)
+            await updateProfile(auth.currentUser, {
+              displayName: newDisplayName,
+            })
+            await updateDoc(doc(getFirestore(), 'users', username), {
+              displayName: newDisplayName,
+            })
+            setDisplayName(newDisplayName)
+          }}
+        >
+          Hei, <b>{displayName ? `${displayName} (${username})` : username}</b>!
+        </DisplayName>
         <TextButton onClick={logout}>LOGG UT</TextButton>
       </Container>
     )
@@ -86,6 +111,14 @@ const Container = styled.div`
   row-gap: 8px;
   margin-left: auto;
   color: #fff;
+`
+
+const DisplayName = styled.span`
+  cursor: pointer;
+
+  :hover {
+    border-bottom: 2px solid #fff;
+  }
 `
 
 const TextButton = styled.span`
