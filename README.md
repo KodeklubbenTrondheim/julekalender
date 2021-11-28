@@ -1,6 +1,6 @@
-# :mrs_claus: Julekalender fra Kodeklubben Trondheim :santa:
+# :mrs_claus: Kodekalender fra Kodeklubben Trondheim :santa:
 
-Om du vil bidra er det bare å sende inn en issue [her](https://github.com/kodeklubbentrondheim/julekalender/issues), så legger vi deg til! The more the merrier :raised_hands:
+Om du vil bidra er det bare å sende inn en issue [her](https://github.com/kodeklubbentrondheim/kodekalender/issues), så legger vi deg til! The more the merrier :raised_hands:
 
 ## :computer: Sette opp prosjektet på din maskin
 
@@ -32,8 +32,8 @@ Nå må vi hente prosjektet fra GitHub. Det gjøres slik:
 1. Åpne terminal (Powershell (Windows) eller Terminal (Mac OS))
 2. Skriv `pwd` for å sjekke hvor du er nå
 3. Naviger deg til der du vil installere prosjektet (skriv `cd mappenavn` for å gå inn i en mappe og `cd ..` for å gå ut)
-4. Skriv så `git clone https://github.com/kodeklubbentrondheim/julekalender.git` (Hvis du har SSH, kjør denne i stedet: `git clone git@github.com:kodeklubbentrondheim/julekalender.git`)
-5. Gå inn i mappen: `cd julekalender`
+4. Skriv så `git clone https://github.com/kodeklubbentrondheim/kodekalender.git` (Hvis du har SSH, kjør denne i stedet: `git clone git@github.com:kodeklubbentrondheim/kodekalender.git`)
+5. Gå inn i mappen: `cd kodekalender`
 6. Skriv `npm install`
 7. Skriv `npm start`
 8. Nå skal det kjøre! Bare å spørre kodeklubben trondheim om hjelp om du stod fast på et steg.

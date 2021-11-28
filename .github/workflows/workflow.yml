@@ -9,6 +9,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    env:
+      REACT_APP_STATIC_HOSTING: true
+
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
@@ -16,7 +19,7 @@ jobs:
       - name: Install and Build 🔧
         run: |
           npm ci
-          REACT_APP_STATIC_HOSTING=true npm run build
+          npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
