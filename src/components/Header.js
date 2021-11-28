@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
+import { Login } from './Login'
 
 export const Header = () => {
   const location = useLocation()
@@ -7,36 +8,49 @@ export const Header = () => {
 
   return (
     <Container>
-      <TextContainer>
-        {path !== '/' && (
-          <StyledLink to="/" $active={path === '/'}>
-            <i className="fas fa-arrow-left" /> Tilbake til kalenderen
-          </StyledLink>
-        )}
-      </TextContainer>
+      <Links>
+        <StyledLink to="/" $active={path === '/' || path.startsWith('/luke')}>
+          KALENDER
+        </StyledLink>
+        <StyledLink to="/ledertavle" $active={path === '/ledertavle'}>
+          LEDERTAVLE
+        </StyledLink>
+        <StyledLink to="/regler" $active={path === '/regler'}>
+          REGLER
+        </StyledLink>
+        <StyledLink to="/foreldre" $active={path === '/foreldre'}>
+          TIL FORELDRE
+        </StyledLink>
+      </Links>
+      <Login />
     </Container>
   )
 }
 
 const Container = styled.div`
-  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 16px 32px 2rem;
+  color: #fff;
+  column-gap: 32px;
+  row-gap: 8px;
+`
+
+const Links = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 32px;
+  row-gap: 8px;
 `
 
 const StyledLink = styled(Link)`
-  text-decoration: none;
-  text-align: center;
-  font-size: clamp(1.5rem, calc(10px + 2vmin), 2rem);
-  color: ${(props) => (props.$active ? '#fff' : '#61dafb')};
-  flex-basis: 300px;
+  color: #fff;
   white-space: nowrap;
-  z-index: 1;
-`
+  border-bottom: ${(props) => (props.$active ? '2px solid #fff' : 'none')};
 
-const TextContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  flex-flow: row wrap;
-  padding-top: max(80px, 10vw);
+  :hover {
+    border-bottom: 2px solid #fff;
+  }
 `

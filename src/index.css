@@ -14,3 +14,7 @@ a {
   color: #61dafb;
   text-decoration: none;
 }
+
+* {
+  box-sizing: border-box;
+}

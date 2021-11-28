@@ -3,17 +3,24 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { createBreakpoint } from 'react-use'
 import { CSSShadows } from '../constants'
+import { useDocument } from 'react-firebase-hooks/firestore'
+import { doc, getFirestore } from '@firebase/firestore'
+import { useStore } from '../store'
+
+const lukeBredde = 160
+const gap = 32
+const margin = 64
 
 const useBreakpoints = createBreakpoint({
   small: 0,
-  medium: 700,
-  large: 1000,
+  medium: lukeBredde * 3 + gap * 2 + margin * 2,
+  large: lukeBredde * 4 + gap * 3 + margin * 2,
 })
 
 const screens = {
   small: {
     columns: 2,
-    size: 'min(200px, calc(50vw - 64px))',
+    size: `min(${lukeBredde}px, calc(50vw - ${margin}px))`,
     layout: `
       1 5
       21 20
@@ -34,7 +41,7 @@ const screens = {
   },
   medium: {
     columns: 3,
-    size: '200px',
+    size: lukeBredde + 'px',
     layout: `
       1 5 21
       20 14 14
@@ -50,7 +57,7 @@ const screens = {
   },
   large: {
     columns: 4,
-    size: '200px',
+    size: lukeBredde + 'px',
     layout: `
       1 5 21 20
       14 14 2 8
@@ -64,13 +71,17 @@ const screens = {
   },
 }
 
-const day = 1
+export const day = 2
+const hardLuker = [5, 9, 12, 15, 17, 19, 22]
 
 export function KalenderSide() {
   const [gridTemplateAreas, setGridTemplateAreas] = useState('')
   const [gridTemplateColumns, setGridTemplateColumns] = useState('')
   const [gridAutoRows, setGridAutoRows] = useState('')
+  const [userData, setUserData] = useState({})
   const breakpoint = useBreakpoints()
+  const userId = useStore((store) => store.userId)
+  const [value] = useDocument(userId && doc(getFirestore(), 'users', userId))
 
   useEffect(() => {
     const { layout, size, columns } = screens[breakpoint]
@@ -79,15 +90,23 @@ export function KalenderSide() {
     setGridAutoRows(size)
   }, [breakpoint])
 
+  useEffect(() => {
+    if (value) {
+      setUserData(value.data() || {})
+    }
+  }, [value])
+
   return (
     <Container>
-      <SupTitle>Kodeklubbens ...</SupTitle>
+      <SupTitle>Kodeklubbens</SupTitle>
       <Title>Kodekalender 2021</Title>
-      {/*<p>Ny kodeoppgave hver dag frem til 24. desember.</p>*/}
       <PricesText>
-        Vinn en kino-billett! 📽🍿 Vi deler ut kino-billetter til 10 heldige deltakere. Jo flere luker du klarer å løse,
-        jo større sjans får du.
+        Vinn en kino-billett! 📽🍿 Vi deler ut en kino-billett til 10 heldige deltakere. Jo flere luker du klarer å løse,
+        jo større sjanse får du (opp til 10 luker).
       </PricesText>
+      <DisclaimerText>
+        Dette er et prøveprosjekt fra Kodeklubben i Trondheim, så det kan komme endringer underveis.
+      </DisclaimerText>
       <Grid
         style={{
           gridTemplateAreas,
@@ -106,9 +125,11 @@ export function KalenderSide() {
                 to={open ? 'luke/' + lukeNr : ''}
                 $lukeNr={lukeNr}
                 $open={open}
+                $solved={open && 'luke' + lukeNr in userData}
                 title={open ? '' : `Denne åpner ${lukeNr}. desember kl 07:00`}
               >
                 {lukeNr}
+                {hardLuker.includes(lukeNr) && <HardLuke>Vanskelig</HardLuke>}
               </Luke>
             )
           })}
@@ -122,29 +143,44 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: calc(200px * 4 + 32px * 3);
+  max-width: ${`calc(${lukeBredde}px * 4 + ${gap}px * 3)`};
 `
 
 const Grid = styled.div`
   display: grid;
-  gap: 32px;
+  gap: ${gap + 'px'};
   text-align: center;
+  margin-top: 70px;
 `
 
 const Luke = styled(Link)`
   grid-area: ${(props) => 'l' + props.$lukeNr};
-  background-color: ${(props) => (props.$open ? '#0f04' : '#7118')};
+  background-color: ${(props) => (props.$open ? (props.$solved ? '#0f04' : '#7118') : '#0003')};
   color: white;
-  cursor: ${(props) => (props.$open ? 'pointer' : 'not-allowed')};
+  cursor: ${(props) => (props.$open ? 'pointer' : 'default')};
   text-align: center;
   border-radius: 16px;
+  position: relative;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 
-  ${CSSShadows.medium}
+  transition-property: box-shadow background-color;
+  transition-duration: 0.2s;
+
+  :hover {
+    background-color: ${(props) => (props.$open ? (props.$solved ? '#0f05' : '#711b') : '#0003')};
+    ${(props) => (props.$open ? CSSShadows.large : '')}
+  }
+`
+
+const HardLuke = styled.h2`
+  position: absolute;
+  bottom: 16px;
+  font-size: 0.5em;
+  color: #fff8;
 `
 
 const SupTitle = styled.h2`
@@ -160,8 +196,12 @@ const Title = styled.h1`
   text-shadow: 0 4px 32px #0008;
 `
 
-const PricesText = styled.p`
+const DisclaimerText = styled.p`
   color: #fff8;
   font-size: 0.75em;
-  margin-bottom: 70px;
+`
+
+const PricesText = styled.p`
+  color: #fff;
+  font-size: 0.75em;
 `

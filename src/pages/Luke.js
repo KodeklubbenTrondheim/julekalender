@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 import styled from 'styled-components'
 import { runCode } from 'client-side-python-runner'
-import { Button } from '../components/Button'
-import { luker } from '../luker'
-import { useParams } from 'react-router'
+import { getFirestore, doc, getDoc, updateDoc } from 'firebase/firestore'
 import mdIt from 'markdown-it'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/vs2015.css'
+
+import { useStore } from '../store'
+import { Button } from '../components/Button'
+import { luker } from '../luker'
+import { login } from '../components/Login'
 
 const md = mdIt({
   langPrefix: 'language-',
@@ -27,6 +31,7 @@ export function LukeSide() {
   const { lukeNr } = useParams()
   const [data, setData] = useState({})
   const [error, setError] = useState('')
+  const userId = useStore((store) => store.userId)
 
   useEffect(() => {
     const nr = parseInt(lukeNr)
@@ -39,7 +44,7 @@ export function LukeSide() {
       const luke = luker['2021'][nr - 1]
       setData({
         ...luke,
-        description: luke.description.replace(/{(\w+\([^)]*\))}/g, `_![$1](${process.env.PUBLIC_URL}/blokker/$1.png)_`),
+        description: luke.description.replace(/{([^}]+)}/g, `_![$1](${process.env.PUBLIC_URL}/images/$1.png)_`),
       })
       setError('')
     } else {
@@ -53,6 +58,22 @@ export function LukeSide() {
     return <ErrorMessage>{error}</ErrorMessage>
   }
 
+  const addLukeToScore = async (username = userId) => {
+    if (username) {
+      const data = (await getDoc(doc(getFirestore(), 'users', username))).data()
+      const lukeId = 'luke' + lukeNr
+      const score = Object.keys(data).filter((e) => e.startsWith('luke')).length
+      if (!(lukeId in data) || score !== data.score) {
+        await updateDoc(doc(getFirestore(), 'users', username), {
+          score: score + 1,
+          [lukeId]: 11121,
+        })
+      }
+    } else {
+      await addLukeToScore(await login())
+    }
+  }
+
   return (
     <>
       <h1>
@@ -61,8 +82,9 @@ export function LukeSide() {
       <Markdown>{data.description}</Markdown>
       <Container>
         <Button
-          onClick={() => {
-            runCode("print('Luke " + lukeNr + "')", { use: 'skulpt' })
+          onClick={async () => {
+            await runCode("print('Luke " + lukeNr + "')", { use: 'skulpt' })
+            await addLukeToScore()
           }}
         >
           Kjør kode!

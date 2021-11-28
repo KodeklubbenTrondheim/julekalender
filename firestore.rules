@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{username} {
+      function isSignedIn() {
+        return request.auth != null;
+      }
+
+      function isCurrentUser() {
+        return request.auth.token.email == username + "@kodeklubben.no";
+      }
+
+      allow read: if true;
+      allow write: if isSignedIn() && isCurrentUser();
+    }
+  }
+}
