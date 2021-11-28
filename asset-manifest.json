@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/kodekalender/static/css/main.47818a56.chunk.css",
-    "main.js": "/kodekalender/static/js/main.c2682874.chunk.js",
-    "main.js.map": "/kodekalender/static/js/main.c2682874.chunk.js.map",
+    "main.js": "/kodekalender/static/js/main.7bf4049a.chunk.js",
+    "main.js.map": "/kodekalender/static/js/main.7bf4049a.chunk.js.map",
     "runtime-main.js": "/kodekalender/static/js/runtime-main.87ea5ae1.js",
     "runtime-main.js.map": "/kodekalender/static/js/runtime-main.87ea5ae1.js.map",
     "static/css/2.5e49b50a.chunk.css": "/kodekalender/static/css/2.5e49b50a.chunk.css",
-    "static/js/2.34b49323.chunk.js": "/kodekalender/static/js/2.34b49323.chunk.js",
-    "static/js/2.34b49323.chunk.js.map": "/kodekalender/static/js/2.34b49323.chunk.js.map",
+    "static/js/2.7d4dc23e.chunk.js": "/kodekalender/static/js/2.7d4dc23e.chunk.js",
+    "static/js/2.7d4dc23e.chunk.js.map": "/kodekalender/static/js/2.7d4dc23e.chunk.js.map",
     "static/js/3.e761be8a.chunk.js": "/kodekalender/static/js/3.e761be8a.chunk.js",
     "static/js/3.e761be8a.chunk.js.map": "/kodekalender/static/js/3.e761be8a.chunk.js.map",
     "index.html": "/kodekalender/index.html",
     "static/css/2.5e49b50a.chunk.css.map": "/kodekalender/static/css/2.5e49b50a.chunk.css.map",
     "static/css/main.47818a56.chunk.css.map": "/kodekalender/static/css/main.47818a56.chunk.css.map",
-    "static/js/2.34b49323.chunk.js.LICENSE.txt": "/kodekalender/static/js/2.34b49323.chunk.js.LICENSE.txt"
+    "static/js/2.7d4dc23e.chunk.js.LICENSE.txt": "/kodekalender/static/js/2.7d4dc23e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.87ea5ae1.js",
     "static/css/2.5e49b50a.chunk.css",
-    "static/js/2.34b49323.chunk.js",
+    "static/js/2.7d4dc23e.chunk.js",
     "static/css/main.47818a56.chunk.css",
-    "static/js/main.c2682874.chunk.js"
+    "static/js/main.7bf4049a.chunk.js"
   ]
 }
