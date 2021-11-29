@@ -69,13 +69,13 @@ function App() {
                 </p>
                 <p>
                   Det er viktig å nevne at programmering ikke burde være det eneste man holder på med, selv om det fort
-                  kan bli slik, men heller en av mange andre aktiviteter (være med venner, være fysisk aktiv, få i seg
-                  mat og drikke, og få nok søvn). Vi har derfor gjort det slik at man får "lodd" for maks 10 av lukene,
-                  slik at man ikke føler seg presset til å klare alle 24 lukene (undertegnede har blitt bitt av denne på
-                  andre kode-kalendere). En stor andel av lukene er også enkle slik at 10 luker skal være overkommelig
-                  for alle som vil prøve seg. Den andre andelen er markert med "Vanskelig" og er der for de som liker en
-                  utfordring.
+                  kan bli slik, men heller en av mange andre aktiviteter. Vi har derfor gjort det slik at man får "lodd"
+                  for maks 10 av lukene, slik at man ikke føler seg presset til å klare alle 24 lukene (undertegnede har
+                  blitt bitt av denne på andre kode-kalendere). En stor andel av lukene er også enkle slik at 10 luker
+                  skal være overkommelig for alle som vil prøve seg. Den andre andelen er markert med "Vanskelig" og er
+                  der for de som liker en utfordring.
                 </p>
+                <h2>Gjør det sosialt</h2>
                 <p>
                   Vi kan også anbefale å løse lukene i denne kalenderen med andre og gjøre det til en sosial aktivitet.
                   Du kan lese mer om spesielt en teknikk som har vist seg å være svært nyttig når man lærer
@@ -85,6 +85,7 @@ function App() {
                   </a>
                   .
                 </p>
+                <h2>Etter kalenderen</h2>
                 <p>
                   Når man er ferdig med kalenderen (man har klart 10 luker) håper vi at interessen for å utforske
                   programmering har økt og at man nå vet mer hva det handler om. Det finnes mange ressurser på internett

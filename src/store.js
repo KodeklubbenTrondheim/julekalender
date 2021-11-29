@@ -120,6 +120,9 @@ forward(100)
   userId: null,
   setUserId: (userId) => set(() => ({ userId })),
 
+  showLoginModal: null,
+  setShowLoginModal: (showLoginModal) => set(() => ({ showLoginModal })),
+
   title: null,
   setTitle: (title) => set(() => ({ title })),
 

@@ -22,6 +22,11 @@ const ButtonStyles = css`
   :active {
     ${CSSShadows.small}
   }
+
+  :disabled {
+    background-color: #111;
+    color: #888;
+  }
 `
 
 export const Button = styled.button`

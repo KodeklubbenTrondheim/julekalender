@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { getFirestore, collection } from 'firebase/firestore'
-import { useCollection } from 'react-firebase-hooks/firestore'
+import { useCollectionOnce } from 'react-firebase-hooks/firestore'
 import { day } from './Kalender'
 
 export function LedertavleSide() {
   const [data, setData] = useState([])
-  const [value, loading, error] = useCollection(collection(getFirestore(), 'users'))
+  const [value, loading, error] = useCollectionOnce(collection(getFirestore(), 'users'))
 
   useEffect(() => {
     if (value) {
@@ -37,7 +37,7 @@ export function LedertavleSide() {
             if (!docs.length) return null
             return (
               <div key={docs[0].score}>
-                <h3 title={`${docs.length} person${docs.length === 1 ? '' : 'er'} har fått ${docs[0].score} lodd`}>
+                <h3 title={`${docs.length} person${docs.length === 1 ? '' : 'er'} har ${docs[0].score} lodd`}>
                   {docs[0].score} lodd ({docs.length})
                 </h3>
                 <Table>

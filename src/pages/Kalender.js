@@ -71,7 +71,9 @@ const screens = {
   },
 }
 
-export const day = 2
+export const day = process.env.REACT_APP_DAY
+  ? parseInt(process.env.REACT_APP_DAY)
+  : Math.floor((Date.now() - new Date(2021, 11, 1, 7).getTime()) / (1000 * 60 * 60 * 24)) + 1
 const hardLuker = [5, 9, 12, 15, 17, 19, 22]
 
 export function KalenderSide() {
@@ -104,6 +106,7 @@ export function KalenderSide() {
         Vinn en kino-billett! 📽🍿 Vi deler ut en kino-billett til 10 heldige deltakere. Jo flere luker du klarer å løse,
         jo større sjanse får du (opp til 10 luker).
       </PricesText>
+      {'score' in userData && <PricesText>Du har nå {userData.score} av 10 lodd i trekningen 24. desember</PricesText>}
       <DisclaimerText>
         Dette er et prøveprosjekt fra Kodeklubben i Trondheim, så det kan komme endringer underveis.
       </DisclaimerText>

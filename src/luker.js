@@ -11,7 +11,7 @@ export const luker = {
         },
       ],
       evaluationMethod: 'blocks',
-      answers: 122131231,
+      answers: [122131231],
     },
     {
       day: 2,
@@ -25,7 +25,7 @@ export const luker = {
         },
       ],
       evaluationMethod: 'blocks',
-      answers: 122131232,
+      answers: [122131232],
     },
   ],
 }

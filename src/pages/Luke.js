@@ -10,7 +10,6 @@ import 'highlight.js/styles/vs2015.css'
 import { useStore } from '../store'
 import { Button } from '../components/Button'
 import { luker } from '../luker'
-import { login } from '../components/Login'
 
 const md = mdIt({
   langPrefix: 'language-',
@@ -32,6 +31,7 @@ export function LukeSide() {
   const [data, setData] = useState({})
   const [error, setError] = useState('')
   const userId = useStore((store) => store.userId)
+  const setShowLoginModal = useStore((store) => store.setShowLoginModal)
 
   useEffect(() => {
     const nr = parseInt(lukeNr)
@@ -58,7 +58,7 @@ export function LukeSide() {
     return <ErrorMessage>{error}</ErrorMessage>
   }
 
-  const addLukeToScore = async (username = userId) => {
+  const addLukeToScore = async (username) => {
     if (username) {
       const data = (await getDoc(doc(getFirestore(), 'users', username))).data()
       const lukeId = 'luke' + lukeNr
@@ -69,8 +69,6 @@ export function LukeSide() {
           [lukeId]: 11121,
         })
       }
-    } else {
-      await addLukeToScore(await login())
     }
   }
 
@@ -81,14 +79,24 @@ export function LukeSide() {
       </h1>
       <Markdown>{data.description}</Markdown>
       <Container>
-        <Button
-          onClick={async () => {
-            await runCode("print('Luke " + lukeNr + "')", { use: 'skulpt' })
-            await addLukeToScore()
-          }}
-        >
-          Kjør kode!
-        </Button>
+        {!userId ? (
+          <Button
+            onClick={() => {
+              setShowLoginModal(true)
+            }}
+          >
+            Kjør kode! (Logg inn / Lag bruker først)
+          </Button>
+        ) : (
+          <Button
+            onClick={async () => {
+              await runCode("print('Luke " + lukeNr + "')", { use: 'skulpt' })
+              await addLukeToScore(userId)
+            }}
+          >
+            Kjør kode!
+          </Button>
+        )}
       </Container>
     </>
   )
