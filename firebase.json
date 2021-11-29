@@ -5,6 +5,7 @@
   "hosting": {
     "site": "kodekalender",
     "public": "build",
+    "trailingSlash": false,
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -12,8 +13,8 @@
     ],
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/build/**",
+        "destination": "/build/index.html"
       }
     ]
   }
