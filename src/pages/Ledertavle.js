@@ -45,7 +45,7 @@ export function LedertavleSide() {
                     return (
                       <Row key={username}>
                         <Name>{displayName || username}</Name>
-                        <Score>{Math.max(10, Math.min(0, day, score))}</Score>
+                        <Score>{Math.max(0, Math.min(10, day, score))}</Score>
                       </Row>
                     )
                   })}
