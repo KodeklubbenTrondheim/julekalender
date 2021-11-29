@@ -1,6 +1,6 @@
 # :mrs_claus: Kodekalender fra Kodeklubben Trondheim :santa:
 
-Om du vil bidra er det bare å sende inn en issue [her](https://github.com/kodeklubbentrondheim/kodekalender/issues), så legger vi deg til! The more the merrier :raised_hands:
+Om du vil bidra er det bare å sende inn en issue [her](https://github.com/kodeklubbentrondheim/kodekalender/issues)!
 
 ## :computer: Sette opp prosjektet på din maskin
 
