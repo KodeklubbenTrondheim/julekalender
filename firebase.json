@@ -13,8 +13,8 @@
     ],
     "rewrites": [
       {
-        "source": "/build/**",
-        "destination": "/build/index.html"
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   }
