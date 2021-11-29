@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/kodekalender/static/css/main.47818a56.chunk.css",
-    "main.js": "/kodekalender/static/js/main.dd79d263.chunk.js",
-    "main.js.map": "/kodekalender/static/js/main.dd79d263.chunk.js.map",
+    "main.js": "/kodekalender/static/js/main.99b53fea.chunk.js",
+    "main.js.map": "/kodekalender/static/js/main.99b53fea.chunk.js.map",
     "runtime-main.js": "/kodekalender/static/js/runtime-main.87ea5ae1.js",
     "runtime-main.js.map": "/kodekalender/static/js/runtime-main.87ea5ae1.js.map",
     "static/css/2.5e49b50a.chunk.css": "/kodekalender/static/css/2.5e49b50a.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.5e49b50a.chunk.css",
     "static/js/2.d082835c.chunk.js",
     "static/css/main.47818a56.chunk.css",
-    "static/js/main.dd79d263.chunk.js"
+    "static/js/main.99b53fea.chunk.js"
   ]
 }
