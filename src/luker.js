@@ -29,20 +29,15 @@ export const luker = {
         },
         {
           kind: 'block',
-          blockxml:
-            '<block type="forward"><value name="DISTANCE"><shadow type="math_number"><field name="NUM">100</field></shadow></value></block>',
+          type: 'forward',
           gap: '4px',
-          maxBlocks: 1,
         },
         {
           kind: 'block',
-          blockxml:
-            '<block type="left"><value name="DEGREES"><shadow type="math_number"><field name="NUM">90</field></shadow></value></block>',
+          type: 'left',
           gap: '4px',
         },
       ],
-      blockxml: '',
-      showToolbox: false,
       preDefinedCode: `pensize(5*scale)`,
       evaluationCode: `answer = pos(), heading()`,
       //showGrid: true,
@@ -89,13 +84,66 @@ export const luker = {
       description:
         'Hva er vel en jul uten gaver? Hjelp nissen med å finne frem til gavemaskinen slik at han kan starte den. Jeg synes å huske den så noe ut som denne: {gavemaskin}',
       type: 'blockly',
-      blocks: [
+      toolbox: [
         {
-          type: 'block',
+          kind: 'label',
+          text: 'Bruk disse blokkene 👇',
+        },
+        {
+          kind: 'block',
+          type: 'forward',
+          gap: '4px',
+        },
+        {
+          kind: 'block',
+          type: 'left',
+          gap: '4px',
+        },
+        {
+          kind: 'block',
+          type: 'right',
+          gap: '4px',
         },
       ],
-      evaluationCode: `answer = 321`,
-      answers: [122131232],
+      preDefinedCode: `
+pensize(5*scale)
+path=[]
+forward_old = forward
+def forward(x):
+  forward_old(x)
+  path.append(pos())
+`,
+      evaluationCode: `answer = path`,
+      answer: (path) => {
+        const [[x, y]] = path
+        console.log(path)
+        if (Math.round(x) === -50 && Math.round(y) === 100) {
+          return {
+            correct: true,
+            feedback: (
+              <>
+                Du klarte det! Nå fikk du et lodd <i className="fas fa-ticket-alt" />
+              </>
+            ),
+            value: generateValue(x, y),
+          }
+        } else if (Math.round(x) === -50 && Math.round(y) === 100) {
+          return { feedback: 'Det er veldig nære!', close: true }
+        } else if (distance(x, y) > 110) {
+          return { feedback: 'Oisann, det var kanskje litt for langt!', close: true }
+        } else if (Math.round(x) === 0 && Math.round(y) === 0) {
+          return {
+            hint: true,
+            feedback:
+              'Prøv å dra en av blokkene til arbeidsbenken (det hvite område med prikker på). Trykk så på den grønne knappen.',
+            close: true,
+          }
+        } else {
+          return {
+            feedback: randomFeedback('Nissen er litt langt unna sin lue fortsatt', 'Dette klarer du!'),
+          }
+        }
+      },
     },
   ],
 }

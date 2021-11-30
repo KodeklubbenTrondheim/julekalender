@@ -48,13 +48,15 @@ function App() {
                     din. Blir dette oppdaget vil du ikke kunne vinne.
                   </li>
                   <li>
-                    Lag passende brukernavn. Hvis vi synes brukernavnet ditt er upassende kommer vi til å endre hvordan
-                    det synes for andre.
+                    Lag passende visningsnavn. Hvis vi synes visningsnavnet ditt er upassende kommer vi til å endre det.
                   </li>
                   <li>
-                    Kun bruk web-applikasjonen slik den er ment. Vi er klar over at kalenderen kan "hackes", men det er
-                    ikke OK. Blir det oppdaget blir du utestengt. Dette kan også ødelegge morroa for andre som følger
-                    reglene.
+                    Kun bruk web-applikasjonen slik den er ment. Hvis du klarer å hacke denne kalenderen på andre måter
+                    så kan vi anbefale at du heller prøver deg på en vanskeligere kode-kalender. Du finner en rekke
+                    andre kalendere her:{' '}
+                    <a href="https://www.kode24.no/artikkel/her-er-arets-julekalendere-for-utviklere-jula-2021/74768728">
+                      https://www.kode24.no/artikkel/her-er-arets-julekalendere-for-utviklere-jula-2021/74768728
+                    </a>
                   </li>
                 </ol>
               </InfoContainer>
@@ -89,11 +91,12 @@ function App() {
                 <p>
                   Når man er ferdig med kalenderen (man har klart 10 luker) håper vi at interessen for å utforske
                   programmering har økt og at man nå vet mer hva det handler om. Det finnes mange ressurser på internett
-                  om hvordan man kommer i gang med alt mulig. YouTube er en spesielt bra plass å starte ettersom det er
-                  community-drevet og basert på popularitet. Ellers er det bare å være kreativ og prøve å kombinere
-                  programmering med andre interesser, som for eksempel matlaging (lage oppskrift eller handleliste),
-                  lage hverdagsplaner (lage en kalender eller en todo-liste) og sosiale aktiviteter (stiv heks
-                  (micro:bit), stein-saks-papir, rødt-og-grønt lys).
+                  om hvordan man kommer i gang med alt mulig. Vi i Kodeklubben har mange gode ressurser på nettsiden
+                  vår: <a href="https://oppgaver.kidsakoder.no">https://oppgaver.kidsakoder.no</a>. YouTube er også en
+                  bra plass å starte ettersom det er community-drevet og basert på popularitet. Ellers er det bare å
+                  være kreativ og prøve å kombinere programmering med andre interesser, som for eksempel matlaging (lage
+                  oppskrift eller handleliste), lage hverdagsplaner (lage en kalender eller en todo-liste) og sosiale
+                  aktiviteter (stiv heks (micro:bit), stein-saks-papir, rødt-og-grønt lys).
                 </p>
               </InfoContainer>
             </Route>

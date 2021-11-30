@@ -18,142 +18,141 @@ export const CSSShadows = {
 
 export const usableNames = `
 Piggsvin-
-Spissmus
-Flaggermus
-Mus
-Katt
-Hund
-Løve
-Kanin
-Okse
-Hjort
-Papegøye
-Fugl
-Fisk
-Tiger
-Leopard
-Ape
-Nesehorn-
-Giraffe
-Rein
-Elg
+Spissmus 🐁
+Flaggermus 🦇
+Mus 🐁
+Katt 🐈
+Hund 🐶
+Løve 🦁
+Kanin 🐰
+Okse 🐂
+Hjort 🦌
+Papegøye 🦜
+Fugl 🐦
+Fisk 🐟
+Tiger 🐯
+Leopard 🦁
+Ape 🦧
+Nesehorn 👃📯-
+Giraffe 🦒
+Rein 🦌
+Elg 🦌
 Røyskatt
 Jerv
-Ulv
-Fjellrev
-Oter
+Ulv 🐺
+Fjellrev 🦊
+Oter 🦦
 Bever
-Bjørn
-Isbjørn
-Brunbjørn
+Bjørn 🐻
+Isbjørn 🧊🐻
+Brunbjørn 🐻
+Vaskebjørn 🐼
 Mink
 Grevling
 Ilder
-Hare
-Ekorn-
-Husmus
+Hare 🐰
+Ekorn 🐿-
+Husmus 🐭
 Lemen
-Hest
-Sau
-Kylling
-Høne
-Brunost
-Agurk
+Hest 🐴
+Sau 🐑
+Kylling 🐥
+Høne 🐔
+Brunost 🟫🧀
+Agurk 🥒
 Paprika
 Syltetøy
-Jordbær-
+Jordbær 🍓-
 Blåbær-
-Pære
-Banan
-Bacon
+Pære 🍐
+Banan 🍌
+Bacon 🥓
 Bringebær-
 Skogsbær-
-Mango
-Ost
-Kjeks
-Brødskive
-Iskrem
-Sjokolade
-Grønnsak
+Mango 🥭
+Ost 🧀
+Kjeks 🍪
+Brødskive 🍞
+Iskrem 🍦
+Sjokolade 🍫
+Grønnsak 🥬
 Ingefær
-Hamburger
-Pizza
-Spaghetti
+Hamburger 🍔
+Pizza 🍕
+Spaghetti 🍝
 Saus
-Taco
+Taco 🌮
 Havre
-Grøt
-Risgrøt
+Grøt 🥣
+Risgrøt 🥣
 Ribbe
 Pinnekjøtt-
-Potet
-Riskrem
-Agurk
+Potet 🥔
+Søtpotet 🍠
+Riskrem 🍚🍨
 Ananas
-Appelsin
+Appelsin 🍊
 Asparges
-Avokado
-Biff
+Avokado 🥑
+Biff 🥩
 Blomkål
-Brokkoli
-Brus
-Julebrus
+Brokkoli 🥦
+Brus 🥤
+Julebrus 🎅🥤
 Bønne
-Chilisaus
+Chilisaus 🌶
 Chips
-Cola
+Cola 🥤
 Daddel
 Dill
 Drue
 Eddik
-Eple-
+Eple 🍎-
 Ert
 Fetaost
 Fiskepinne
 Geitost
-Havregrøt
-Honning
-Hvitløk
+Havregrøt 🥣
+Honning 🍯
+Hvitløk 🧅
 Kakao
-Kake
+Kake 🎂
 Kanel
 Ketchup
-Kirsebær-
+Kirsebær 🍒-
 Krem
-Kringle
+Kringle 🍩
 Krydder-
 Kål
 Lapskaus
 Lime
-Løk
-Mais
+Løk 🧅
+Mais 🌽
 Makaroni
 Mandel
-Mango
-Nudel
+Nudel 🍜
 Oliven
 Pannekake
 Persille
-Popkorn-
+Popkorn 🍿-
 Potetstappe
-Pære
-Pølse
-Riskake
+Pølse 🌭
+Riskake 🍚🍰
 Rosin
 Rømme
-Salat
+Salat 🥗
 Salt-
 Sennep
 Sirup
-Sitron
-Sopp
+Sitron 🍋
+Sopp 🍄
 Squash
 Sukker-
-Sylteagurk
-Tomat
-Tomatsuppe
-Suppe
-Vaffel
+Sylteagurk 🥒
+Tomat 🍅
+Tomatsuppe 🍅🍲
+Suppe 🍲
+Vaffel 🧇
 Vanilje`
   .trim()
   .split('\n')

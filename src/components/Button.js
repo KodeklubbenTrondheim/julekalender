@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { Link } from 'react-router-dom'
 import { CSSShadows } from '../constants'
 
 const ButtonStyles = css`
@@ -34,5 +35,9 @@ export const Button = styled.button`
 `
 
 export const LinkButton = styled.a`
+  ${ButtonStyles}
+`
+
+export const RouterLinkButton = styled(Link)`
   ${ButtonStyles}
 `

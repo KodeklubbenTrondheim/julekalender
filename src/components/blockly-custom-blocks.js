@@ -36,6 +36,31 @@ Blockly.Blocks['forward'] = {
       message0: 'fremover %1',
       args0: [
         {
+          type: 'field_number',
+          name: 'DISTANCE',
+          value: 100,
+        },
+      ],
+      previousStatement: null,
+      nextStatement: null,
+      colour: 900,
+      tooltip: 'Flytt avataren fremover',
+    })
+  },
+}
+
+Blockly.Python['forward'] = function (block) {
+  const value = block.getFieldValue('DISTANCE')
+  return `forward(${value})\n`
+}
+
+Blockly.Blocks['forward-ext'] = {
+  init: function () {
+    if (!this.jsonInit) return
+    this.jsonInit({
+      message0: 'fremover %1',
+      args0: [
+        {
           type: 'input_value',
           name: 'DISTANCE',
           check: 'Number',
@@ -49,7 +74,7 @@ Blockly.Blocks['forward'] = {
   },
 }
 
-Blockly.Python['forward'] = function (block) {
+Blockly.Python['forward-ext'] = function (block) {
   const value = Blockly.Python.valueToCode(block, 'DISTANCE', Blockly.Python.ORDER_ATOMIC) || '0'
   return `forward(${value})\n`
 }
@@ -177,6 +202,31 @@ Blockly.Blocks['right'] = {
       message0: 'roter ↻ %1',
       args0: [
         {
+          type: 'field_angle',
+          name: 'DEGREES',
+          angle: 90,
+        },
+      ],
+      previousStatement: null,
+      nextStatement: null,
+      colour: 900,
+      tooltip: 'Roter avataren antall grader til høyre (med klokka)',
+    })
+  },
+}
+
+Blockly.Python['right'] = function (block) {
+  const value = block.getFieldValue('DEGREES')
+  return `right(${value})\n`
+}
+
+Blockly.Blocks['right-ext'] = {
+  init: function () {
+    if (!this.jsonInit) return
+    this.jsonInit({
+      message0: 'roter ↻ %1',
+      args0: [
+        {
           type: 'input_value',
           name: 'DEGREES',
           check: 'Number',
@@ -190,12 +240,37 @@ Blockly.Blocks['right'] = {
   },
 }
 
-Blockly.Python['right'] = function (block) {
+Blockly.Python['right-ext'] = function (block) {
   const value = Blockly.Python.valueToCode(block, 'DEGREES', Blockly.Python.ORDER_ATOMIC) || '0'
   return `right(${value})\n`
 }
 
 Blockly.Blocks['left'] = {
+  init: function () {
+    if (!this.jsonInit) return
+    this.jsonInit({
+      message0: 'roter ↺ %1',
+      args0: [
+        {
+          type: 'field_angle',
+          name: 'DEGREES',
+          angle: 90,
+        },
+      ],
+      previousStatement: null,
+      nextStatement: null,
+      colour: 900,
+      tooltip: 'Roter avataren antall grader til venstre (mot klokka)',
+    })
+  },
+}
+
+Blockly.Python['left'] = function (block) {
+  const value = block.getFieldValue('DEGREES')
+  return `left(${value})\n`
+}
+
+Blockly.Blocks['left-ext'] = {
   init: function () {
     if (!this.jsonInit) return
     this.jsonInit({
@@ -215,34 +290,9 @@ Blockly.Blocks['left'] = {
   },
 }
 
-Blockly.Python['left'] = function (block) {
+Blockly.Python['left-ext'] = function (block) {
   const value = Blockly.Python.valueToCode(block, 'DEGREES', Blockly.Python.ORDER_ATOMIC) || '0'
   return `left(${value})\n`
-}
-
-Blockly.Blocks['sideways'] = {
-  init: function () {
-    if (!this.jsonInit) return
-    this.jsonInit({
-      message0: 'sidelengs %1',
-      args0: [
-        {
-          type: 'input_value',
-          name: 'DISTANCE',
-          check: 'Number',
-        },
-      ],
-      previousStatement: null,
-      nextStatement: null,
-      colour: 900,
-      tooltip: 'Flytt avataren sidelengs',
-    })
-  },
-}
-
-Blockly.Python['sideways'] = function (block) {
-  const value = Blockly.Python.valueToCode(block, 'DISTANCE', Blockly.Python.ORDER_ATOMIC) || '0'
-  return `sideways(${value})\n`
 }
 
 Blockly.Blocks['color'] = {
@@ -303,21 +353,6 @@ Blockly.Python['rgba'] = function (block) {
   const b = Blockly.Python.valueToCode(block, 'BLUE', Blockly.Python.ORDER_ATOMIC) || '0'
   const a = Blockly.Python.valueToCode(block, 'ALPHA', Blockly.Python.ORDER_ATOMIC) || '0'
   return `color(max(0, min(1, ${r} / 255)), max(0, min(1, ${g} / 255)), max(0, min(1, ${b} / 255)), max(0, min(1, ${a} / 255)))\n`
-}
-
-Blockly.Blocks['randomColor'] = {
-  init: function () {
-    if (!this.jsonInit) return
-    this.appendDummyInput().appendField('sett en tilfeldig farge')
-    this.setPreviousStatement(true)
-    this.setNextStatement(true)
-    this.setColour(280)
-    this.setTooltip('Skift farge på streken til en tilfeldig farge')
-  },
-}
-
-Blockly.Python['randomColor'] = function () {
-  return `randomColor()\n`
 }
 
 Blockly.Blocks['penUp'] = {

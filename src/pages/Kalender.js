@@ -103,12 +103,21 @@ export function KalenderSide() {
       <SupTitle>Kodeklubbens</SupTitle>
       <Title>Kodekalender 2021</Title>
       <PricesText>
-        Vinn en kino-billett! 📽🍿 Vi deler ut en kino-billett til 10 heldige deltakere. Jo flere luker du klarer å løse,
-        jo større sjanse får du (opp til 10 luker).
+        <span style={{ textDecoration: 'line-through', color: '#fff8' }}>
+          Vinn en kino-billett! 📽🍿 Vi deler ut en kino-billett til 10 heldige deltakere. Jo flere luker du klarer å
+          løse, jo større sjanse får du (opp til 10 luker).
+        </span>{' '}
+        (Vi venter med premier til neste år 😊)
       </PricesText>
-      {'score' in userData && <PricesText>Du har nå {userData.score} av 10 lodd i trekningen 24. desember</PricesText>}
+      {'score' in userData && (
+        <PricesText>
+          <span style={{ textDecoration: 'line-through', color: '#fff8' }}>
+            Du har nå {userData.score} av 10 lodd i trekningen 24. desember
+          </span>
+        </PricesText>
+      )}
       <DisclaimerText>
-        Dette er et prøveprosjekt fra Kodeklubben i Trondheim, så det kan komme endringer underveis.
+        Dette er et prøveprosjekt fra Kodeklubben i Trondheim som fortsatt er under konstruksjon 👷‍♂️
       </DisclaimerText>
       <Grid
         style={{

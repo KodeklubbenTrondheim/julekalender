@@ -167,7 +167,8 @@ export function BlocklyEditor({ above, below, toolbox = [], settings = {}, onCha
 const Container = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
+  justify-content: center;
   gap: 8px;
   font-size: 16px;
   margin-top: 56px;

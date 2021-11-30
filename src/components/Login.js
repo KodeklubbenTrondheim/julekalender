@@ -286,11 +286,13 @@ const Modal = styled.div`
   border-radius: 8px;
   overflow: auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   width: 100%;
   max-width: 640px;
+  max-height: calc(100% - 32px);
+  overflow: auto;
   margin: 16px;
   padding: 16px;
   ${CSSShadows.large}
@@ -328,7 +330,7 @@ const Input = styled.input`
 
 const Label = styled.span`
   flex: 0 0 100px;
-  text-align: right;
+  text-align: center;
 `
 
 const NewDisplayName = styled.i.attrs({

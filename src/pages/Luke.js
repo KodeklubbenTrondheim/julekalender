@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router'
 import styled from 'styled-components'
 import { getVariable, runCode, setEngine, setOptions } from 'client-side-python-runner'
@@ -9,7 +9,7 @@ import 'highlight.js/styles/vs2015.css'
 
 import { CodeEditor, BlocklyEditor } from '../components/CodeEditor'
 import { useStore } from '../store'
-import { Button } from '../components/Button'
+import { Button, RouterLinkButton } from '../components/Button'
 import { luker } from '../luker'
 import { day } from './Kalender'
 import { Graphics } from '../components/Graphics'
@@ -35,7 +35,8 @@ export function LukeSide() {
   const [data, setData] = useState({})
   const [error, setLukeError] = useState('')
   const [feedback, setFeedback] = useState('')
-  const [feedbackColor, setFeedbackColor] = useState('#0f0')
+  const [doneWithTask, setDoneWithTask] = useState(false)
+  const [feedbackColor, setFeedbackColor] = useState('#5f5')
   const userId = useStore((store) => store.userId)
   const setShowLoginModal = useStore((store) => store.setShowLoginModal)
 
@@ -59,8 +60,13 @@ export function LukeSide() {
   const clearError = useStore((state) => state.clearError)
   const pythonErrorLineNumberOffset = useStore((state) => state.pythonErrorLineNumberOffset)
 
+  const lukeNrRef = useRef(0)
   useEffect(() => {
     const nr = parseInt(lukeNr)
+    if (nr !== lukeNrRef.current && lukeNrRef.current > 0) {
+      window.location.reload()
+    }
+    lukeNrRef.current = nr
 
     if (/^\d+$/.test(lukeNr) && nr >= 1 && nr <= 24) {
       if (nr > Math.min(luker['2021'].length, day)) {
@@ -70,6 +76,7 @@ export function LukeSide() {
       const luke = luker['2021'][nr - 1]
       setData({
         ...luke,
+        lukeNr: nr,
         description: luke.description.replace(/{([^}]+)}/g, `_![$1](${process.env.PUBLIC_URL}/images/$1.png)_`),
       })
       setEditorMode(luke.type)
@@ -129,8 +136,9 @@ export function LukeSide() {
     const run = async () => {
       const answer = data.answer(await getVariable('answer'))
       setFeedback(answer.feedback)
-      setFeedbackColor(answer.correct ? '#0f0' : answer.close ? '#f80' : '#fff')
+      setFeedbackColor(answer.correct ? '#5f5' : answer.close ? '#fa3' : '#fff')
       if (answer.correct) {
+        setDoneWithTask(true)
         addLukeToScore(userId, hashCode(answer.value))
       }
     }
@@ -271,7 +279,14 @@ export function LukeSide() {
       <BlocklyEditor
         toolbox={toolbox}
         settings={data.blocklySettings || {}}
-        above={<RunCodeButton runCodeFunction={runBlocklyCode} />}
+        above={
+          <>
+            <RunCodeButton runCodeFunction={runBlocklyCode} />
+            {doneWithTask && data.lukeNr < day && data.lukeNr < 24 && (
+              <NextLukeButton to={'/luke/' + (data.lukeNr + 1)}>Gå til luke {data.lukeNr + 1}</NextLukeButton>
+            )}
+          </>
+        }
       />
     )
 
@@ -281,7 +296,7 @@ export function LukeSide() {
         <LukeNr>Luke {lukeNr}:</LukeNr> {data.title}
       </h1>
       <Markdown>{data.description}</Markdown>
-      {feedback && <h3 style={{ color: feedbackColor, margin: 0 }}>{feedback}</h3>}
+      <Feedback color={feedbackColor}>{feedback}</Feedback>
       {pythonEngineLoading ? `Laster inn Python (${pythonEngineLoading}) ...` : ''}
       <Container>
         <Graphics />
@@ -292,7 +307,6 @@ export function LukeSide() {
 }
 
 const Container = styled.div`
-  background-color: #4c1616;
   position: relative;
   text-align: center;
   display: flex;
@@ -314,8 +328,25 @@ const RunButton = styled(Button)`
   }
 `
 
+const NextLukeButton = styled(RouterLinkButton)`
+  align-self: center;
+  background-color: #f80;
+  color: #fff;
+
+  :hover {
+    background-color: #d60;
+  }
+`
+
 const LukeNr = styled.span`
   color: #fff8;
+`
+
+const Feedback = styled.h3`
+  color: ${(props) => props.color};
+  text-shadow: 0 0 8px #0008;
+  margin: 0 0 -32px;
+  min-height: 46px;
 `
 
 const ErrorMessage = styled.h1`
