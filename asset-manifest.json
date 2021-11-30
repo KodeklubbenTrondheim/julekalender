@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/kodekalender/static/css/main.47818a56.chunk.css",
-    "main.js": "/kodekalender/static/js/main.0719fc83.chunk.js",
-    "main.js.map": "/kodekalender/static/js/main.0719fc83.chunk.js.map",
-    "runtime-main.js": "/kodekalender/static/js/runtime-main.87ea5ae1.js",
-    "runtime-main.js.map": "/kodekalender/static/js/runtime-main.87ea5ae1.js.map",
+    "main.css": "/kodekalender/static/css/main.98eeb702.chunk.css",
+    "main.js": "/kodekalender/static/js/main.b24c02be.chunk.js",
+    "main.js.map": "/kodekalender/static/js/main.b24c02be.chunk.js.map",
+    "runtime-main.js": "/kodekalender/static/js/runtime-main.8a34c63a.js",
+    "runtime-main.js.map": "/kodekalender/static/js/runtime-main.8a34c63a.js.map",
     "static/css/2.5e49b50a.chunk.css": "/kodekalender/static/css/2.5e49b50a.chunk.css",
-    "static/js/2.d082835c.chunk.js": "/kodekalender/static/js/2.d082835c.chunk.js",
-    "static/js/2.d082835c.chunk.js.map": "/kodekalender/static/js/2.d082835c.chunk.js.map",
-    "static/js/3.e761be8a.chunk.js": "/kodekalender/static/js/3.e761be8a.chunk.js",
-    "static/js/3.e761be8a.chunk.js.map": "/kodekalender/static/js/3.e761be8a.chunk.js.map",
+    "static/js/2.208510e4.chunk.js": "/kodekalender/static/js/2.208510e4.chunk.js",
+    "static/js/2.208510e4.chunk.js.map": "/kodekalender/static/js/2.208510e4.chunk.js.map",
+    "static/js/3.aa04f548.chunk.js": "/kodekalender/static/js/3.aa04f548.chunk.js",
+    "static/js/3.aa04f548.chunk.js.map": "/kodekalender/static/js/3.aa04f548.chunk.js.map",
     "index.html": "/kodekalender/index.html",
     "static/css/2.5e49b50a.chunk.css.map": "/kodekalender/static/css/2.5e49b50a.chunk.css.map",
-    "static/css/main.47818a56.chunk.css.map": "/kodekalender/static/css/main.47818a56.chunk.css.map",
-    "static/js/2.d082835c.chunk.js.LICENSE.txt": "/kodekalender/static/js/2.d082835c.chunk.js.LICENSE.txt"
+    "static/css/main.98eeb702.chunk.css.map": "/kodekalender/static/css/main.98eeb702.chunk.css.map",
+    "static/js/2.208510e4.chunk.js.LICENSE.txt": "/kodekalender/static/js/2.208510e4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.87ea5ae1.js",
+    "static/js/runtime-main.8a34c63a.js",
     "static/css/2.5e49b50a.chunk.css",
-    "static/js/2.d082835c.chunk.js",
-    "static/css/main.47818a56.chunk.css",
-    "static/js/main.0719fc83.chunk.js"
+    "static/js/2.208510e4.chunk.js",
+    "static/css/main.98eeb702.chunk.css",
+    "static/js/main.b24c02be.chunk.js"
   ]
 }
