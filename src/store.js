@@ -41,6 +41,17 @@ pensize(scale)
 
 export const useStore = create((set) => ({
   preDefinedPythonCode,
+  addedPreDefinedPythonCode: '',
+  addPreDefinedPythonCode: (addedPreDefinedPythonCode) => {
+    set(() => ({
+      addedPreDefinedPythonCode,
+      pythonErrorLineNumberOffset:
+        preDefinedPythonCode.split('\n').length +
+        extraPythonCodeForTheBrowserRendering.split('\n').length -
+        2 +
+        addedPreDefinedPythonCode.split('\n').length,
+    }))
+  },
   extraPythonCodeForTheBrowserRendering,
   pythonErrorLineNumberOffset:
     preDefinedPythonCode.split('\n').length + extraPythonCodeForTheBrowserRendering.split('\n').length - 2,
@@ -57,6 +68,11 @@ forward(100)
   setPythonCode: (pythonCode) => {
     localStorage.setItem('pythonCode', pythonCode)
     set(() => ({ pythonCode }))
+  },
+  postDefinedPythonCode: localStorage.getItem('postDefinedPythonCode') || ``,
+  setPostDefinedPythonCode: (postDefinedPythonCode) => {
+    localStorage.setItem('postDefinedPythonCode', postDefinedPythonCode)
+    set(() => ({ postDefinedPythonCode }))
   },
   javascriptCode: localStorage.getItem('javascriptCode') || ``,
   setJavascriptCode: (javascriptCode) => {

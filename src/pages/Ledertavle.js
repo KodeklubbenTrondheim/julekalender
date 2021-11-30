@@ -17,6 +17,7 @@ export function LedertavleSide() {
       value.docs
         .map((doc) => ({ username: doc.id, ...doc.data() }))
         .filter((doc) => doc.show !== false)
+        .map((doc) => ({ ...doc, score: Math.max(0, Math.min(10, day, doc.score)) }))
         .sort((a, b) => b.score - a.score)
         .forEach((doc) => {
           groupedByScore[doc.score].push(doc)
@@ -45,7 +46,7 @@ export function LedertavleSide() {
                     return (
                       <Row key={username}>
                         <Name>{displayName || username}</Name>
-                        <Score>{Math.max(0, Math.min(10, day, score))}</Score>
+                        <Score>{score}</Score>
                       </Row>
                     )
                   })}
